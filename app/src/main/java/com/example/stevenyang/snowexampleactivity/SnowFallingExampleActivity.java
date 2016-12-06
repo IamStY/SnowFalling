@@ -23,4 +23,10 @@ public class SnowFallingExampleActivity extends AppCompatActivity {
         snowFlakesLayout.setEnableAlphaFade(true);
         snowFlakesLayout.startSnowing();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        snowFlakesLayout.stopSnowing();
+    }
 }

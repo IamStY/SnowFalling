@@ -95,8 +95,7 @@ public class SnowFlakesLayout extends RelativeLayout {
         height = displaymetrics.heightPixels;
         width = displaymetrics.widthPixels;
         imageResourceID = R.drawable.snow_flakes_pic;
-        Log.i("screen width", width + "");
-    }
+     }
 
     private void showSnow(){
         final ImageView snowAnimationView = new ImageView(context);
@@ -139,11 +138,9 @@ public class SnowFlakesLayout extends RelativeLayout {
 
             @Override
             public void onFinish() {
-                Log.i("byebyesnow", "byebyesnow");
                 SnowFlakesLayout.this.removeView(snowAnimationView);
             }
         }.start();
-//        scale.setDuration(animateDuration);
         snowAnimationView.setAnimation(animationSet);
         animationSet.startNow();
     }
