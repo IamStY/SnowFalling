@@ -9,12 +9,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
 android:background="@color/black"
     tools:context=".SnowFallingExampleActivity">
-    <com.example.stevenyang.snowfalling.SnowFlakesLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
 
-        android:id="@+id/snowflakelayout">
-
-
-    </com.example.stevenyang.snowfalling.SnowFlakesLayout>
+    <com.example.stevenyang.snowfalling.SnowFlakesLayout
+        android:id="@+id/snowflakelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.example.stevenyang.snowfalling.SnowFlakesLayout>
 
 </RelativeLayout>
