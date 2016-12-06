@@ -13,10 +13,11 @@ I've made some default definition for some variable, so all you need to do is ty
 
 
 -----------------------------------------------------------------------------------
-   SnowFlakesLayout snowFlakesLayout;
-   snowFlakesLayout = (SnowFlakesLayout) this.findViewById(R.id.snowflakelayout);
-   snowFlakesLayout.init();
-   snowFlakesLayout.startSnowing();
+
+	   SnowFlakesLayout snowFlakesLayout;
+	   snowFlakesLayout = (SnowFlakesLayout) this.findViewById(R.id.snowflakelayout);
+	   snowFlakesLayout.init();
+	   snowFlakesLayout.startSnowing();
    --------------------------------------------------------------------------------
 
    and xml -
