@@ -11,6 +11,8 @@ SnowFalling  effect for android
 
 I've made some default definition for some variable, so all you need to do is type the following code In your activity -
 
+
+-----------------------------------------------------------------------------------
    SnowFlakesLayout snowFlakesLayout;
    snowFlakesLayout = (SnowFlakesLayout) this.findViewById(R.id.snowflakelayout);
    snowFlakesLayout.init();
