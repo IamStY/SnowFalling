@@ -9,7 +9,7 @@ public class SnowFallingExampleActivity extends AppCompatActivity {
     SnowFlakesLayout snowFlakesLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         snowFlakesLayout = (SnowFlakesLayout) this.findViewById(R.id.snowflakelayout);

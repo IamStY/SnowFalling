@@ -7,7 +7,7 @@ Many thanks!
 SnowFalling  effect for android
 
 
-![gitsnow](https://cloud.githubusercontent.com/assets/14084447/20919353/45194474-bbd6-11e6-9bc5-b9e88caf8a76.png)
+![snowing](https://cloud.githubusercontent.com/assets/14084447/20951162/2b67fbcc-bc5f-11e6-90bc-6fe8c02d6253.gif)
 
 I've made some default definition for some variable, so all you need to do is type the following code In your activity -
 
