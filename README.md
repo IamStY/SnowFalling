@@ -9,6 +9,24 @@ SnowFalling  effect for android
 
 ![snowing](https://cloud.githubusercontent.com/assets/14084447/20951162/2b67fbcc-bc5f-11e6-90bc-6fe8c02d6253.gif)
 
+
+
+first of all , in your project gradle
+add this -
+-------------------------------------------------------------------------------------------
+		allprojects {
+		repositories {
+			..
+			maven { url 'https://jitpack.io' }
+		}
+	}
+-------------------------------------------------------------------------------------------
+	
+then go to your app's dependencies
+add this -
+-------------------------------------------------------------
+	  compile 'com.github.IamStY:SnowFalling:v1.0'
+-------------------------------------------------------------------------------------------
 I've made some default definition for some variable, so all you need to do is type the following code In your activity -
 
 
