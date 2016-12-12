@@ -4,9 +4,11 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -36,6 +38,7 @@ public class SnowFlakesLayout extends RelativeLayout {
     boolean enableAlphaFade = false;
     CountDownTimer mainCountdownSnowTimer;
     Random generator = new Random();
+    Handler mHandler = new Handler();
     public SnowFlakesLayout(Context context) {
         super(context);
         this.context = context;
@@ -131,7 +134,7 @@ public class SnowFlakesLayout extends RelativeLayout {
             animation.setDuration(animateDuration);
             animationSet.addAnimation(animation);
         }
-        new CountDownTimer(animateDuration, 1000) {
+        CountDownTimer timer =  new CountDownTimer(animateDuration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
             }
@@ -141,6 +144,7 @@ public class SnowFlakesLayout extends RelativeLayout {
                 SnowFlakesLayout.this.removeView(snowAnimationView);
             }
         }.start();
+        snowAnimationView.setTag(R.id.tag_countdown_timer, timer);
         snowAnimationView.setAnimation(animationSet);
         animationSet.startNow();
     }
@@ -155,12 +159,30 @@ public class SnowFlakesLayout extends RelativeLayout {
 
             @Override
             public void onFinish() {
+                stopSnowing();
 
             }
         }.start();
     }
     public void stopSnowing(){
         mainCountdownSnowTimer.cancel();
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                int count = getChildCount();
+                for (int i = 0; i < count; i++) {
+                    View view = getChildAt(i);
+                    if (view != null) {
+                        view.clearAnimation();
+                    }
+                    CountDownTimer timer = (CountDownTimer) view.getTag(R.id.tag_countdown_timer);
+                    if (timer != null) {
+                        timer.cancel();
+                    }
+                }
+                removeAllViews();
+            }
+        });
     }
 
 }
