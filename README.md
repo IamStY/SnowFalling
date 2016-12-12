@@ -25,7 +25,7 @@ add this -
 then go to your app's dependencies
 add this -
 -------------------------------------------------------------
-	  compile 'com.github.IamStY:SnowFalling:v1.0'
+	  compile 'com.github.IamStY:SnowFalling:v1.1'
 -------------------------------------------------------------------------------------------
 I've made some default definition for some variable, so all you need to do is type the following code In your activity -
 
