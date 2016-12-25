@@ -36,6 +36,7 @@ public class SnowFlakesLayout extends RelativeLayout {
     boolean shouldRandomSnowSize = false;
     boolean enableRandomCurving = false;
     boolean enableAlphaFade = false;
+    final int snowFlakeYInitializePosition = -30;
     CountDownTimer mainCountdownSnowTimer;
     Random generator = new Random();
     Handler mHandler = new Handler();
@@ -116,7 +117,7 @@ public class SnowFlakesLayout extends RelativeLayout {
         snowParam.setMargins((int) (width - flakeWidth - i2), 0, 0, 0);
         this.addView(snowAnimationView, snowParam);
         AnimationSet animationSet = new AnimationSet(false);
-        TranslateAnimation scale = new TranslateAnimation(Animation.RELATIVE_TO_SELF, Animation.RELATIVE_TO_SELF, Animation.RELATIVE_TO_SELF, height);
+        TranslateAnimation scale = new TranslateAnimation(Animation.RELATIVE_TO_SELF, Animation.RELATIVE_TO_SELF,snowFlakeYInitializePosition, height);
         scale.setDuration(animateDuration);
         animationSet.addAnimation(scale);
 
