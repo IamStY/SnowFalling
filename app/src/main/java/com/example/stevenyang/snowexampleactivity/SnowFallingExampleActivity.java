@@ -21,6 +21,12 @@ public class SnowFallingExampleActivity extends AppCompatActivity {
         snowFlakesLayout.setImageResourceID(R.drawable.snow_flakes_pic);
         snowFlakesLayout.setEnableRandomCurving(true);
         snowFlakesLayout.setEnableAlphaFade(true);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         snowFlakesLayout.startSnowing();
     }
 

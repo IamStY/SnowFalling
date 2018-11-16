@@ -135,17 +135,30 @@ public class SnowFlakesLayout extends RelativeLayout {
             animation.setDuration(animateDuration);
             animationSet.addAnimation(animation);
         }
-        CountDownTimer timer =  new CountDownTimer(animateDuration, 1000) {
+
+        animationSet.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onTick(long millisUntilFinished) {
+            public void onAnimationStart(Animation animation) {
+
             }
 
             @Override
-            public void onFinish() {
-                SnowFlakesLayout.this.removeView(snowAnimationView);
+            public void onAnimationEnd(Animation animation) {
+                snowAnimationView.setVisibility(View.GONE);
+                SnowFlakesLayout.this.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        SnowFlakesLayout.this.removeView(snowAnimationView);
+                    }
+                }, 500);
             }
-        }.start();
-        snowAnimationView.setTag(R.id.tag_countdown_timer, timer);
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        snowAnimationView.setTag(R.id.tag_countdown_timer, animationSet);
         snowAnimationView.setAnimation(animationSet);
         animationSet.startNow();
     }
@@ -165,9 +178,9 @@ public class SnowFlakesLayout extends RelativeLayout {
             }
         }.start();
     }
+
     public void stopSnowing(){
         mainCountdownSnowTimer.cancel();
-        //Thanks to @byronshlin for the help on removing view when snowing stops
         mHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -177,10 +190,7 @@ public class SnowFlakesLayout extends RelativeLayout {
                     if (view != null) {
                         view.clearAnimation();
                     }
-                    CountDownTimer timer = (CountDownTimer) view.getTag(R.id.tag_countdown_timer);
-                    if (timer != null) {
-                        timer.cancel();
-                    }
+
                 }
                 removeAllViews();
             }
