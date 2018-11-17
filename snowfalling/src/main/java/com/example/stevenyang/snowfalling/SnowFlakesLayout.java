@@ -191,6 +191,7 @@ public class SnowFlakesLayout extends RelativeLayout {
     }
 
     public void stopSnowing(){
+        if(mainCountdownSnowTimer!=null)
         mainCountdownSnowTimer.cancel();
         mHandler.post(new Runnable() {
             @Override
