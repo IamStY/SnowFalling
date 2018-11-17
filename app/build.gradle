@@ -24,6 +24,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.github.IamStY:SnowFalling:v1.4'
+//    compile project(path: ':snowfalling')
+    implementation 'com.github.IamStY:SnowFalling:v1.5'
 }
 //compile 'com.github.IamStY:SnowFalling:v1.1'

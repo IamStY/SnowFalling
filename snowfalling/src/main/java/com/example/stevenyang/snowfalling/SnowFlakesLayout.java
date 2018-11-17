@@ -2,6 +2,7 @@ package com.example.stevenyang.snowfalling;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -37,6 +38,7 @@ public class SnowFlakesLayout extends RelativeLayout {
     boolean enableRandomCurving = false;
     boolean enableAlphaFade = false;
     final int snowFlakeYInitializePosition = -30;
+    Bitmap snowFlakesBitmap;
     CountDownTimer mainCountdownSnowTimer;
     Random generator = new Random();
     Handler mHandler = new Handler();
@@ -60,6 +62,11 @@ public class SnowFlakesLayout extends RelativeLayout {
     public SnowFlakesLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.context = context;
+    }
+
+
+    public void setImageBitmap(Bitmap snowFlakesBitmap) {
+        this.snowFlakesBitmap = snowFlakesBitmap;
     }
 
     public void setEnableAlphaFade(boolean enableAlphaFade) {
@@ -104,7 +111,11 @@ public class SnowFlakesLayout extends RelativeLayout {
     private void showSnow(){
         final ImageView snowAnimationView = new ImageView(context);
         snowAnimationView.setClickable(false);
-        snowAnimationView.setImageResource(imageResourceID);
+        if(snowFlakesBitmap!=null){
+            snowAnimationView.setImageBitmap(snowFlakesBitmap);
+        }else{
+            snowAnimationView.setImageResource(imageResourceID);
+        }
         int flakeWidth = snowMaxSize;
         int flakeHeight = snowMaxSize;
         if (shouldRandomSnowSize) {
